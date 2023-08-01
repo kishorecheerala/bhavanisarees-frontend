@@ -1,0 +1,179 @@
+
+/* #cd-div1{
+    background-color: #0081CF;
+} */
+
+#customer-details{
+    font-size: 25px;
+}
+
+#cd-main-h2, #cd-sub-h2{
+    color: white;
+}
+
+#cd-card-header{
+    background-color: white;
+}
+
+#cd-table-pd{
+    text-align: center;
+    vertical-align:middle;
+    font-size: 20px;
+}
+
+/* Card 2/Div 2  */
+
+#cd-card2-main{
+    display: flex;
+    gap: 10px;
+}
+
+.cd-card2-sub{
+    box-sizing: border-box;
+    display: flex;
+    margin: 6px auto;
+    align-items: center;
+}
+
+.card-2{
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 10px 10px;
+    border: 1px solid lightblue;
+    width: 60%;
+    border-radius: 14px;
+}
+
+#heading{
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+
+#heading-hr{
+    border: 1px solid white;
+    width: 100%;
+}
+
+#heading, #plabel, #purchase-label{
+    color: white;
+    font-weight: bold;
+}
+
+#plabel, #cd-input, #payment{
+    font-size: 18px;
+    width: 50%;
+}
+
+#purchase-label{
+    font-size: 20px;
+    margin-top: -5px;
+    margin-left: 10px;
+}
+
+.radio-btn-div{
+    text-align: center;
+}
+
+#date-input{
+    font-size: 18px;
+    width: 50%;
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+#saree-div{
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    gap:50%
+}
+
+#saree-label{
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    
+    
+}
+
+#add-saree-btn{
+    margin: 10px 10px;
+    width: 90%;
+    font-weight: bold;
+}
+
+#add-saree-sub{
+    margin-right: 0px;
+}
+
+#saree-remove-btn{
+    margin: 1px 10px;
+    width: 8%;
+    font-weight: bold;
+}
+
+#saree-details{
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 10px;
+    width: 40%;
+    margin-right: 0;
+    margin-left: 50%;
+}
+
+
+
+#cd-input{
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+#payment-upload{
+width: fit-content;
+}
+
+#payment-upload-label{
+    width: fit-content;
+}
+
+/* Card 3/Div 3 CSS */
+
+#cd-div-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-3{
+    margin-top: 15px;
+    border: 1px solid lightblue;
+    width: 40%;
+    border-radius: 14px;
+}
+b{
+    color: aliceblue;
+}
+
+/* End Buttons CSS */
+
+#cd-buttons{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#cd-submit-btn, #cd-cancel-btn{
+    font-size: 20px;
+    padding: 10px 10px;
+}
+
+#cd-submit-btn{
+    background-color: darkblue;
+}
+#cd-submit-btn:hover{
+    background-color: rgb(83, 83, 235);
+}
