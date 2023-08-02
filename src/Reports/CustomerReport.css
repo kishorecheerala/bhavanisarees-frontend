@@ -1,0 +1,36 @@
+#list-customer-div {
+    justify-content: center;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+#lc-h1 {
+    color: white
+}
+
+@media screen and (max-width: 990px) {
+
+    #list-customer-table {
+        margin-left: -50px;
+    }
+}
+
+#lc-table {
+    text-align    : center;
+    vertical-align: middle;
+    font-size     : 17px;
+}
+
+.actions {
+    display        : flex;
+    justify-content: space-evenly;
+}
+
+#list-customers-btn-view,
+#list-customers-btn-edit,
+#list-customers-btn-delete {
+    font-size: 20px;
+    width    : 90px;
+}

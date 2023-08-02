@@ -91,6 +91,7 @@ export default function Navbar () {
               </ul>
             </li>
 
+
             {/* Reports Tab */}
 
             <li className='nav-item dropdown'>
@@ -104,13 +105,18 @@ export default function Navbar () {
               </a>
               <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                 <li>
-                  <a className='dropdown-item' href='/customers'>
+                  <a className='dropdown-item' href='/customer/reports'>
                     Customers List
                   </a>
                 </li>
                 <li>
-                  <a className='dropdown-item' href='/newseller'>
-                    Seller Returns
+                  <a className='dropdown-item' href='/print'>
+                    Test Print
+                  </a>
+                </li>
+                <li>
+                  <a className='dropdown-item' href='/excel'>
+                    Excel Test
                   </a>
                 </li>
                 <li>
