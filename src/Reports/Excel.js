@@ -19,7 +19,7 @@ const Excel = () => {
 
     const { onDownload } = useDownloadExcel({
         currentTableRef: tableRef.current,
-        filename: "Customer Details",
+        filename: "",
         sheet: "Customer Details",
     });
 

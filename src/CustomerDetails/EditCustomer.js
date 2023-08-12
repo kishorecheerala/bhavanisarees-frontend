@@ -47,7 +47,7 @@ return (
                 <h2 id='edit-customer-h2' className='text-center m-4'>Edit Customer Details</h2>
                     <form onSubmit={(e) => onSubmit(e)}>
 
-                    <div className='edit-customer-subdivs'>
+                    <div className='edit-customer-sub-div'>
                     <label id='edit-customer-label' htmlFor='Name' className='from-label'>
                     Customer ID:
                     </label>
@@ -62,7 +62,7 @@ return (
                     />
                     </div>
 
-                    <div className='edit-customer-subdivs'>
+                    <div className='edit-customer-sub-div'>
                     <label id='edit-customer-label' htmlFor='Name' className='from-label'>
                     Name :
                     </label>
@@ -77,7 +77,7 @@ return (
                     />
                     </div>
 
-                    <div className='edit-customer-subdivs'>
+                    <div className='edit-customer-sub-div'>
                     <label id='edit-customer-label' htmlFor='Name' className='from-label'>
                     Address: 
                     </label>
@@ -92,7 +92,7 @@ return (
                     />
                     </div>
                     
-                    <div className='edit-customer-subdivs'>
+                    <div className='edit-customer-sub-div'>
                     <label id='edit-customer-label' htmlFor='Name' className='from-label'>
                     PhoneNo: 
                     </label>
@@ -107,7 +107,7 @@ return (
                     />
                     </div>
                     
-                    <div className='edit-customer-subdivs'>
+                    <div className='edit-customer-sub-div'>
                     <label id='edit-customer-label' htmlFor='Name' className='from-label'>
                     Reference:
                     </label>

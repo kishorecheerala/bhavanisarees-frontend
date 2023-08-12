@@ -11,8 +11,10 @@
   background-size: 360% 360%;
   animation: gradient-animation 12s ease infinite;
 
+  /* background-image:url("/src/images/BR.jpg"); */
+  
   height: 100vh!important;
-
+  
 }
 
 @keyframes gradient-animation {

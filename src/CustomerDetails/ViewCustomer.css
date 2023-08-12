@@ -1,7 +1,7 @@
 
-/* #cd-div1{
-    background-color: #0081CF;
-} */
+#cd-div1{
+    background-color: #0080cf;
+}
 
 #customer-details{
     font-size: 25px;
@@ -55,12 +55,12 @@
     width: 100%;
 }
 
-#heading, #plabel, #purchase-label{
+#heading, #plabel, .plabel, #purchase-label{
     color: white;
     font-weight: bold;
 }
 
-#plabel, #cd-input, #payment{
+.plabel, #plabel, #cd-input, #payment{
     font-size: 18px;
     width: 50%;
 }
@@ -69,6 +69,7 @@
     font-size: 20px;
     margin-top: -5px;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .radio-btn-div{
@@ -81,6 +82,7 @@
     border-radius: 10px;
     height: 40px;
     padding-left: 10px;
+    border: none;
 }
 
 #saree-div{
@@ -94,8 +96,6 @@
     font-size: 18px;
     color: white;
     font-weight: bold;
-    
-    
 }
 
 #add-saree-btn{
@@ -106,29 +106,81 @@
 
 #add-saree-sub{
     margin-right: 0px;
-}
+    display: flex;
 
-#saree-remove-btn{
-    margin: 1px 10px;
-    width: 8%;
-    font-weight: bold;
 }
 
 #saree-details{
+    /* border-radius: 10px;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 50%;  */
+    width: 55%;
+    margin-right: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#saree-remove-btn{
+    margin-top: -5px;
+    width: 7%;
+    font-weight: bold;
+}
+
+#saree-quantity-btn-div{
+    display: flex;
+    gap:15px;
+    margin-top: 12px;
+}
+
+#saree-quantity{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: white;
+}
+
+#saree-decrement-btn{
+    height: 45px;
+    font-weight: bold;
+    font-size: 40px;
+    display: inline-flex;
+    justify-content: center; /* center the content horizontally */
+    align-items: center; /* center the content vertically */
+    
+}
+
+#saree-increment-btn{
+    height: 45px;
+    font-weight: bold;
+    font-size: 30px;
+    display: inline-flex;
+    justify-content: center; /* center the content horizontally */
+    align-items: center; /* center the content vertically */
+}
+
+
+/* #saree-details{
     border-radius: 10px;
     height: 40px;
     padding-left: 10px;
     width: 40%;
     margin-right: 0;
     margin-left: 50%;
+} */
+
+
+/* all the input fields */
+
+#saree-price{
+    font-weight: bold;
 }
-
-
 
 #cd-input{
     border-radius: 10px;
     height: 40px;
     padding-left: 10px;
+    border: none;
 }
 
 #payment-upload{

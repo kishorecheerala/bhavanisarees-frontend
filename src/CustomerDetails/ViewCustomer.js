@@ -30,33 +30,41 @@ export default function ViewCustomer() {
   };
 
   const [purchaseData, setPurchaseData] = useState({
-    customerID: "",
+    customerID: {  },
     customerPurchaseDate: "",
-    purchasedSarees: [],
     customerSareePrice: "",
     remarks: "",
     modeOfPayment: "",
 
-    //repayment radio button fields
-    sareesOption: "purchased", // 'purchased' or 'repayment'
-    repaymentAmount: "", // Additional field for repayment
+    //item code and quantity
+    purchasedSarees: [{ name: "", quantity: 1 }],
+
+    //repayment radio button
+    // 'purchased' or 'repayment'
+    sareesOption: ["purchased", "repayment", "returns"],
+    repaymentAmount: "",
+    // Additional field for repayment
+    returnedSarees: "", 
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setPurchaseData({ ...purchaseData, [name]: value });
+    setPurchaseData({ ...purchaseData, [name]: value, customerID:customer.customerID });
   };
 
   const handleSareeInputChange = (e, index) => {
     const newSarees = [...purchaseData.purchasedSarees];
-    newSarees[index] = e.target.value;
+    newSarees[index] = { ...newSarees[index], name: e.target.value };
     setPurchaseData({ ...purchaseData, purchasedSarees: newSarees });
   };
 
   const handleAddSaree = () => {
     setPurchaseData({
       ...purchaseData,
-      purchasedSarees: [...purchaseData.purchasedSarees, ""],
+      purchasedSarees: [
+        ...purchaseData.purchasedSarees,
+        { name: "", quantity: 1 },
+      ],
     });
   };
 
@@ -66,8 +74,16 @@ export default function ViewCustomer() {
     setPurchaseData({ ...purchaseData, purchasedSarees: newSarees });
   };
 
+  const handleQuantityChange = (index, value) => {
+    const newSarees = [...purchaseData.purchasedSarees];
+    newSarees[index] = { ...newSarees[index], quantity: newSarees[index].quantity + value };
+    if (newSarees[index].quantity < 1) {
+      newSarees[index] = { ...newSarees[index], quantity: 1 };
+    }
+    setPurchaseData({ ...purchaseData, purchasedSarees: newSarees });
+  };
+
   const handleSubmit = async (e) => {
-    console.log(purchaseData);
     e.preventDefault();
     try {
       await axios.post(
@@ -82,9 +98,7 @@ export default function ViewCustomer() {
   };
 
   return (
-    // code for displaying details
-    <div className="container-fluid">
-      <div className="row">
+        // code for displaying details
         <div id="cd-div1" className="boarder rounded p-4 mt-5 shadow">
           <h1 id="cd-main-h2" className="text-center mb-3">
             Bhavani Sarees Payment Receipt
@@ -127,6 +141,7 @@ export default function ViewCustomer() {
                 <hr id="heading-hr"></hr>
 
                 {/* Radio button code for customer purchase */}
+
                 <div className="radio-btn-div">
                   <div className="form-check-inline">
                     <input
@@ -140,22 +155,38 @@ export default function ViewCustomer() {
                     <label id="purchase-label" className="form-check-label">
                       Purchased Sarees
                     </label>
-                  </div>
 
-                  {/* Radio button code for repayment */}
+                    {/* Radio button code for repayment */}
 
-                  <div className="form-check-inline">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="sareesOption"
-                      value="repayment"
-                      checked={purchaseData.sareesOption === "repayment"}
-                      onChange={handleInputChange}
-                    />
-                    <label id="purchase-label" className="form-check-label">
-                      Repayment
-                    </label>
+                    <div className="form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="sareesOption"
+                        value="repayment"
+                        checked={purchaseData.sareesOption === "repayment"}
+                        onChange={handleInputChange}
+                      />
+                      <label id="purchase-label" className="form-check-label">
+                        Repayment
+                      </label>
+                    </div>
+
+                    {/* Radio button code for returns */}
+
+                    <div className="form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="sareesOption"
+                        value="returns"
+                        checked={purchaseData.sareesOption === "returns"}
+                        onChange={handleInputChange}
+                      />
+                      <label id="purchase-label" className="form-check-label">
+                        Returns
+                      </label>
+                    </div>
                   </div>
                 </div>
 
@@ -180,15 +211,23 @@ export default function ViewCustomer() {
                     </div>
 
                     {purchaseData.purchasedSarees.map((saree, index) => (
-                      <div id="add-saree-sub" key={index}>
+                      <div
+                        className="form-floating"
+                        id="add-saree-sub"
+                        key={index}
+                      >
                         <>
                           <input
                             id="saree-details"
                             type="text"
-                            value={saree}
+                            className="form-control"
+                            value={saree.name}
                             onChange={(e) => handleSareeInputChange(e, index)}
                             required
                           />
+                          <label for="saree-details" className="plabel">
+                            Saree Details:
+                          </label>
                         </>
                         <>
                           <button
@@ -199,22 +238,42 @@ export default function ViewCustomer() {
                           >
                             Remove
                           </button>
+                          <div id="saree-quantity-btn-div">
+                            <button
+                              id="saree-decrement-btn"
+                              className="btn btn-warning"
+                              type="button"
+                              onClick={() => handleQuantityChange(index, -1)}
+                            >
+                              -
+                            </button>
+                            <span id="saree-quantity">{saree.quantity}</span>
+                            <button
+                              id="saree-increment-btn"
+                              className="btn btn-warning"
+                              type="button"
+                              onClick={() => handleQuantityChange(index, 1)}
+                            >
+                              +
+                            </button>
+                          </div>
                         </>
                       </div>
                     ))}
 
-                    <div className="cd-card2-sub">
-                      <label id="plabel" htmlFor="sareePrice">
-                        Saree Price:
-                      </label>
+                    <div className="form-floating">
                       <input
-                        id="cd-input"
+                        id="saree-price"
                         type="number"
                         name="sareePrice"
+                        className="form-control"
                         value={purchaseData.sareePrice}
                         onChange={handleInputChange}
                         required
                       />
+                      <label for="saree-price" className="plabel">
+                        Saree Price:
+                      </label>
                     </div>
 
                     <div className="cd-card2-sub">
@@ -266,6 +325,68 @@ export default function ViewCustomer() {
                 )}
 
                 {/* End of the repayment radio button */}
+
+                {/* Radio buttons logic for returns */}
+
+                {purchaseData.sareesOption === "returns" && (
+                  <>
+                    <div id="saree-div">
+                      <div>
+                        <label id="saree-label">Saree Details:</label>
+                      </div>
+                      <div>
+                        <button
+                          id="add-saree-btn"
+                          className="btn btn-warning"
+                          type="button"
+                          onClick={handleAddSaree}
+                        >
+                          Add Saree
+                        </button>
+                      </div>
+                    </div>
+
+                    {purchaseData.purchasedSarees.map((saree, index) => (
+                      <div id="add-saree-sub" key={index}>
+                        <>
+                          <input
+                            id="saree-details"
+                            type="text"
+                            value={saree}
+                            onChange={(e) => handleSareeInputChange(e, index)}
+                            required
+                          />
+                        </>
+                        <>
+                          <button
+                            id="saree-remove-btn"
+                            className="btn btn-danger m-1"
+                            type="button"
+                            onClick={() => handleRemoveSaree(index)}
+                          >
+                            Remove
+                          </button>
+                        </>
+                      </div>
+                    ))}
+
+                    <div className="cd-card2-sub">
+                      <label id="plabel" htmlFor="purchaseDate">
+                        Customer Purchase Date:
+                      </label>
+                      <input
+                        id="date-input"
+                        type="date"
+                        name="customerPurchaseDate"
+                        value={purchaseData.customerPurchaseDate}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                  </>
+                )}
+
+                {/* End of Returns radio button logic */}
 
                 <div className="cd-card2-sub">
                   <label id="plabel" htmlFor="remarks">
@@ -325,8 +446,6 @@ export default function ViewCustomer() {
 
             {/* End of Primary div */}
 
-    
-
             <div id="cd-buttons">
               <br></br>
               <button
@@ -347,7 +466,5 @@ export default function ViewCustomer() {
             </div>
           </form>
         </div>
-      </div>
-    </div>
   );
 }

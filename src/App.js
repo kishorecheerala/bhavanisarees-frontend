@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom" ;
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import DataTable from 'datatables.net-dt';
+
 
 import Navbar from './Navbar/Navbar';
-import AddCustomer from './CustomerDetails/AddCustomer';
-import ListCustomers from './CustomerDetails/ListCustomers';
+import NewCustomerListCustomers from './CustomerDetails/NewCustomerListCustomers';
 import EditCustomer from './CustomerDetails/EditCustomer';
 import ViewCustomer from './CustomerDetails/ViewCustomer';
 import AddSeller from './SellerDetails/AddSeller';
@@ -17,6 +16,8 @@ import ViewSeller from './SellerDetails/ViewSeller';
 import CustomerReport from './Reports/CustomerReport';
 import Print from './Reports/Print';
 import Excel from './Reports/Excel';
+
+
 
 function App() {
   return (
@@ -31,8 +32,7 @@ function App() {
         <Route exact path="/Home" element={<index/>}/>
         
         {/* Customer Details */}
-        <Route exact path="/customers" element={<ListCustomers/>}/>
-        <Route exact path="/newcustomer" element={<AddCustomer/>}/>
+        <Route exact path="/customers" element={<NewCustomerListCustomers/>}/>
         <Route exact path="/editcustomer/:customerID" element={<EditCustomer/>}/>
         <Route exact path="/viewcustomer/:customerID" element={<ViewCustomer/>}/>
 

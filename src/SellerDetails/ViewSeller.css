@@ -73,6 +73,8 @@
 
 .radio-btn-div{
     text-align: center;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #date-input{
@@ -109,18 +111,19 @@
 }
 
 #saree-remove-btn{
-    margin: 1px 10px;
-    width: 8%;
+    /* margin: 1px 10px; */
+    width: 20%;
     font-weight: bold;
 }
 
 #saree-details{
-    border-radius: 10px;
+    /* /* border-radius: 10px;
     height: 40px;
     padding-left: 10px;
-    width: 40%;
-    margin-right: 0;
     margin-left: 50%;
+    width: 55%;
+    margin-right: 0;
+    margin-bottom: 10px; */
 }
 
 

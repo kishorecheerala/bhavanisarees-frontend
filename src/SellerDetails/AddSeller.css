@@ -1,39 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
 
 .add-customer-container{
     align-items: center;
-}
 
+}
+/* 
 #add-customer-maincard{
     box-sizing: border-box;
     width: 600px;
     margin: 50px auto;
-}
+    justify-content: center;
+} */
 
 .add-customer-sub{
     display: flex;
     margin: 10px auto;
     justify-content: space-between;
-    align-items: center;
 }
 
 #add-customer-h2{
-    color: white;
+    color: black;
+    font-weight: bold;
+    font-family: 'Lobster Two', cursive;
 }
 
-#add-customer-label, #add-customer-input{
+.add-customer-label, #add-customer-input{
     font-size: 18px;
     font-weight: bold;
+    width: 100%;
 }
-#add-customer-label{
-    margin-left: 70px;
-    color: white;
-}
-
 #add-customer-input{
-    width: 50%;
-    margin-right: 50px;
     margin-bottom: 10px;
 }
+/*  */
 
 #add-customer-btn-div{
     display: flex;

@@ -1,19 +1,20 @@
 #list-customer-div {
     justify-content: center;
+    width: 100%; 
+    /* Make the container fill the entire width */
+    
+    /* Enable horizontal scrolling if the content overflows */
 }
 
-.container {
-    margin-top: 40px;
-}
-
-#lc-h1 {
-    color: white
-}
+#list-customer-table {
+    width: 100%;    
+    }
 
 @media screen and (max-width: 990px) {
 
     #list-customer-table {
-        margin-left: -50px;
+        /* margin-left: -50px; */
+
     }
 }
 
