@@ -111,11 +111,7 @@
 }
 
 #saree-details{
-    /* border-radius: 10px;
-    height: 40px;
-    padding-left: 10px;
-    margin-left: 50%;  */
-    width: 55%;
+    width: 75%;
     margin-right: 0;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -123,7 +119,7 @@
 
 #saree-remove-btn{
     margin-top: -5px;
-    width: 7%;
+    width: 20%;
     font-weight: bold;
 }
 
@@ -157,6 +153,8 @@
     display: inline-flex;
     justify-content: center; /* center the content horizontally */
     align-items: center; /* center the content vertically */
+    margin-right:0!important;
+    
 }
 
 

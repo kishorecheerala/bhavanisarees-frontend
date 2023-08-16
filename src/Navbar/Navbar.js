@@ -22,7 +22,7 @@ export default function Navbar () {
           <span className='navbar-toggler-icon' />
         </button>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul className='navbar-nav mx-auto mb-lg-0 gap-3'>
+          <ul className='navbar-nav mx-auto mb-lg-0 gap-2'>
             <li className='nav-item'>
               <a className='nav-link active' aria-current='page' href='/'>
                 Home

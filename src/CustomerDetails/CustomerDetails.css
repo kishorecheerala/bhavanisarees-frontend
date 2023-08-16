@@ -1,0 +1,196 @@
+/* Add Customer CSS */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,800&display=swap");
+
+#show-add-customer-form-btn {
+    margin-top : 10px;
+    margin-left: 80%;
+    color      : #fff;
+    cursor     : pointer;
+}
+
+.customer-list-div {
+    background: linear-gradient(344deg,#f2cdaa,#469380,#31207f);
+    background-size: 180% 180%;
+    animation: gradient-animation 21s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.add-customer-container {
+    align-items: center;
+    margin     : 10px 15px;
+}
+
+.add-customer-div {
+    display        : flex;
+    justify-content: space-evenly;
+    gap            : 5px;
+}
+
+#add-customer-h2 {
+    color      : white !important;
+    font-weight: bold;
+    font-family: "Playfair Display", serif !important;
+    font-size  : 40px;
+}
+
+#add-customer-input {
+    font-size    : 18px;
+    font-weight  : bold;
+    width        : 100%;
+    margin-bottom: 10px;
+}
+
+#add-customer-btn-div {
+    display        : flex;
+    justify-content: center;
+    gap            : 15px;
+    margin-bottom  : 15px;
+}
+
+#add-customer-submit-btn {
+    padding  : 10px;
+    font-size: 20px;
+}
+
+#add-customer-reset-btn {
+    padding  : 10px;
+    font-size: 20px;
+    width    : 90px;
+}
+
+
+/* Edit Customer CSS */
+
+#edit-customer-maincard {
+    align-items: center;
+    margin     : 10px 15px;
+}
+
+#edit-customer-input-div {
+    display        : flex;
+    justify-content: space-evenly;
+    gap            : 5px;
+}
+
+#edit-customer-input {
+    font-size    : 18px;
+    font-weight  : bold;
+    width        : 100%;
+    margin-bottom: 10px;
+}
+
+.edit-customer-label {
+    font-size  : 18px;
+    font-weight: bold;
+}
+
+/* List Customer CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+
+@media (min-width: 900px) {
+    #list-customer-div {
+        display: flex;
+        width: 70%;
+        align-items: center;
+        margin-left: 2%;
+        margin-right: 10%; /* Adjusted margin-right value */
+    }
+    #lc-table {
+        word-wrap: break-word;
+        table-layout: auto;
+        width: 80%;
+    }
+}
+
+#list-customer-div {
+    justify-content: center;
+    width: 95%;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 10%;
+}
+
+.buttons-print {
+    background-color: #3586ff;
+    color           : white;
+    border-radius   : 12px;
+    font-size       : 18px;
+    font-weight     : bold;
+    padding         : 10px 10px;
+    margin-left     : -50px;
+    border-style    : none;
+    font-family     : system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.buttons-pdf {
+    background-color: #3586ff;
+    color           : #ffffff;
+    border-radius   : 12px;
+    font-size       : 18px;
+    font-weight     : bold;
+    padding         : 10px 10px;
+    margin-left     : -50px;
+    border-style    : none;
+
+}
+
+
+#list-customer-table{
+    
+}
+
+#lc-table {
+    text-align    : center;
+    vertical-align: middle;
+    font-size     : 17px;
+    word-wrap: break-word;
+    table-layout: auto;
+    width: 100%;
+}
+
+th,td {
+    white-space: nowrap;
+}
+
+.actions {
+    display        : flex;
+    justify-content: space-evenly;
+}
+
+
+#list-customers-btn-view,
+#list-customers-btn-edit,
+#list-customers-btn-delete {
+    font-size: 20px;
+    width    : 50%;
+}
+
+#go-to-top-btn {
+    position        : fixed;
+    bottom          : 50px;
+    right           : 20px;
+    padding         : 8px 8px;
+    background-color: black;
+    color           : #fff;
+    border          : none;
+    border-radius   : 50%;
+    cursor          : pointer;
+}
+

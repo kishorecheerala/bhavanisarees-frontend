@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 
-import "./NewCustomerListCustomers.css";
+import "./CustomerDetails.css";
+import "./CustomerDetails.scss";
+
 
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import "datatables.net-dt/js/dataTables.dataTables.min.js";
@@ -30,7 +31,7 @@ import "react-toastify/dist/ReactToastify.css";
 // Assign vfs_fonts.js module to pdfMake
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-const NewCustomerListCustomers = () => {
+const CustomerDetails = () => {
   // Code to hide the Add Customer Div
   const [showAddCustomerForm, setShowAddCustomerForm] = useState(false);
 
@@ -101,11 +102,11 @@ const NewCustomerListCustomers = () => {
     if (customerToEdit) {
       setEditMode(true);
       setEditCustomerData({
-          customerID: customerToEdit.customerID,
-          customerName: customerToEdit.customerName,
-          address: customerToEdit.address,
-          phoneNumber: customerToEdit.phoneNumber,
-          reference: customerToEdit.reference,
+        customerID: customerToEdit.customerID,
+        customerName: customerToEdit.customerName,
+        address: customerToEdit.address,
+        phoneNumber: customerToEdit.phoneNumber,
+        reference: customerToEdit.reference,
       });
     }
   };
@@ -182,6 +183,7 @@ const NewCustomerListCustomers = () => {
         ],
 
         buttons: [
+
           //Print button customization from the datatable
           {
             extend: "print",
@@ -275,7 +277,7 @@ const NewCustomerListCustomers = () => {
   }
 
   return (
-    <div className="add-customer-list-div">
+    <div className="customer-list-div">
       <button
         id="show-add-customer-form-btn"
         className="btn btn-secondary"
@@ -421,175 +423,176 @@ const NewCustomerListCustomers = () => {
       <ToastContainer position="top-center" />
 
       {editMode && (
-        
-          <div id="edit-customer-maincard" className="border rounded shadow">
-            <h2 id="edit-customer-h2" className="text-center m-4">
-              Edit Customer Details
-            </h2>
-            <form onSubmit={(e) => onEditSubmit(e)}>
 
-                  <div id="edit-customer-input-div">
-                  
-                  <div className="form-floating">
-                  <input
-                    id="edit-customer-input"
-                    type="text"
-                    className="form-control"
-                    placeholder="Enter Customer ID"
-                    name="customerID"
-                    value={editCustomerData.customerID}
-                    onChange={(e) => onEditInputChange(e)}
-                    required
-                  />
-                  <label
-                    for="edit-customer-input"
-                    className="edit-customer-label"
-                  >
-                    Customer ID
-                  </label>
-                  </div>
+        <div id="edit-customer-maincard" className="border rounded shadow">
+          <h2 id="edit-customer-h2" className="text-center m-4">
+            Edit Customer Details
+          </h2>
+          <form onSubmit={(e) => onEditSubmit(e)}>
 
-              
-                  <div className="form-floating">
-                  <input
-                    id="edit-customer-input"
-                    type="text"
-                    className="form-control"
-                    name="customerName"
-                    value={editCustomerData.customerName}
-                    onChange={(e) => onEditInputChange(e)}
-                    required
-                  />
-                  <label
-                    for="edit-customer-input"
-                    className="edit-customer-label"
-                  >
-                    Customer Name
-                  </label>
-                  </div>
+            <div id="edit-customer-input-div">
 
-                  <div className="form-floating">
-                  <input
-                    id="edit-customer-input"
-                    type="text"
-                    className="form-control"
-                    name="address"
-                    value={editCustomerData.address}
-                    onChange={(e) => onEditInputChange(e)}
-                    required
-                  />
-                  <label
-                    for="edit-customer-input"
-                    className="edit-customer-label"
-                  >
-                    Customer Address
-                  </label>
-                  </div>
-              
-                  <div className="form-floating">
-                  <input
-                    id="edit-customer-input"
-                    type="text"
-                    className="form-control"
-                    name="phoneNumber"
-                    value={editCustomerData.phoneNumber}
-                    onChange={(e) => onEditInputChange(e)}
-                    required
-                  />
-                  <label
-                    for="edit-customer-input"
-                    className="edit-customer-label"
-                  >
-                    Customer Phone No
-                  </label>
-                  </div>
-
-                  <div className="form-floating">
-                  <input
-                    id="edit-customer-input"
-                    type="text"
-                    className="form-control"
-                    name="reference"
-                    value={editCustomerData.reference}
-                    onChange={(e) => onEditInputChange(e)}
-                    required
-                  />
-                  <label
-                    for="edit-customer-input"
-                    className="edit-customer-label"
-                  >
-                    Reference
-                  </label>
-                  </div>
-                  </div>
-            
-
-              <div id="edit-customer-btn-div">
-                <br></br>
-                <button
-                  id="edit-customer-submit-btn"
-                  type="submit"
-                  className="btn btn-primary"
+              <div className="form-floating">
+                <input
+                  id="edit-customer-input"
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Customer ID"
+                  name="customerID"
+                  value={editCustomerData.customerID}
+                  onChange={(e) => onEditInputChange(e)}
+                  required
+                />
+                <label
+                  for="edit-customer-input"
+                  className="edit-customer-label"
                 >
-                  Submit
-                </button>
-                <Link
-                  id="edit-customer-cancel-btn"
-                  className="btn btn-danger"
-                  onClick={() => setEditMode(false)}
-                >
-                  Cancel
-                </Link>
+                  Customer ID
+                </label>
               </div>
+
+
+              <div className="form-floating">
+                <input
+                  id="edit-customer-input"
+                  type="text"
+                  className="form-control"
+                  name="customerName"
+                  value={editCustomerData.customerName}
+                  onChange={(e) => onEditInputChange(e)}
+                  required
+                />
+                <label
+                  for="edit-customer-input"
+                  className="edit-customer-label"
+                >
+                  Customer Name
+                </label>
+              </div>
+
+              <div className="form-floating">
+                <input
+                  id="edit-customer-input"
+                  type="text"
+                  className="form-control"
+                  name="address"
+                  value={editCustomerData.address}
+                  onChange={(e) => onEditInputChange(e)}
+                  required
+                />
+                <label
+                  for="edit-customer-input"
+                  className="edit-customer-label"
+                >
+                  Customer Address
+                </label>
+              </div>
+
+              <div className="form-floating">
+                <input
+                  id="edit-customer-input"
+                  type="text"
+                  className="form-control"
+                  name="phoneNumber"
+                  value={editCustomerData.phoneNumber}
+                  onChange={(e) => onEditInputChange(e)}
+                  required
+                />
+                <label
+                  for="edit-customer-input"
+                  className="edit-customer-label"
+                >
+                  Customer Phone No
+                </label>
+              </div>
+
+              <div className="form-floating">
+                <input
+                  id="edit-customer-input"
+                  type="text"
+                  className="form-control"
+                  name="reference"
+                  value={editCustomerData.reference}
+                  onChange={(e) => onEditInputChange(e)}
+                  required
+                />
+                <label
+                  for="edit-customer-input"
+                  className="edit-customer-label"
+                >
+                  Reference
+                </label>
+              </div>
+            </div>
+
+            <br></br>
+            <div id="edit-customer-btn-div">
               <br></br>
-            </form>
-          </div>
+              <button
+                id="edit-customer-submit-btn"
+                type="submit"
+                className="btn btn-primary"
+              >
+                Submit
+              </button>
+              <Link
+                id="edit-customer-cancel-btn"
+                className="btn btn-danger"
+                onClick={() => setEditMode(false)}
+              >
+                Cancel
+              </Link>
+            </div>
+            <br></br>
+          </form>
+        </div>
       )}
 
-              {/* End of the Edit customer form */}
+      {/* End of the Edit customer form */}
 
-              {/* Customers List table code */}
+      {/* Customers List table code */}
 
-      <div className="container">
+      <div>
         <h1 id="add-customer-h2" className="text-center">
           Customers List
         </h1>
-        <div id="list-customer-div">
-          <table
-            id="list-customer-table"
-            className="table compact table-bordered table-striped shadow"
-          >
-            <thead id="lc-table" className="table-dark">
-              <tr className="text-header m-1">
-                <th className="text-center">Customer ID</th>
-                <th className="text-center">Customer Name</th>
-                <th className="text-center">Address</th>
-                <th className="text-center">Phone number</th>
-                <th className="text-center">Reference</th>
-                <th className="text-center">Actions</th>
-              </tr>
-            </thead>
+      </div>
+      <div id="list-customer-div">
+        <table
+          id="list-customer-table"
+          className="table table-bordered table-striped shadow"
+        >
+          <thead id="customerlist-tableheader" className="table-dark">
+            <tr id="customerlist-tableheader-row" className="text-header">
+              <th className="text-center">Customer ID</th>
+              <th className="text-center">Customer Name</th>
+              <th className="text-center">Address</th>
+              <th className="text-center">Phone number</th>
+              <th className="text-center">Reference</th>
+              <th className="text-center">Actions</th>
+            </tr>
+          </thead>
 
-            <tbody id="lc-table" className="table-body">
-              {newcustomers.map((customers) => (
-                <tr key={customers.customersID}>
-                  <td>{customers.customerID}</td>
-                  <td>{customers.customerName}</td>
-                  <td>{customers.address}</td>
-                  <td>{customers.phoneNumber}</td>
-                  <td>{customers.reference}</td>
+          <tbody id="lc-table" className="table-body fw-bold">
+            {newcustomers.map((customers) => (
+              <tr key={customers.customersID}>
+                <td>{customers.customerID}</td>
+                <td>{customers.customerName}</td>
+                <td>{customers.address}</td>
+                <td>{customers.phoneNumber}</td>
+                <td>{customers.reference}</td>
 
-                  <td className="actions">
-                    <Link
-                      id="list-customers-btn-view"
-                      type="button"
-                      className="btn btn-primary mx-2"
-                      to={`/viewcustomer/${customers.customerID}`}
-                    >
-                      View
-                    </Link>
+                <td className="actions">
+                  <Link
+                    id="list-customers-btn-view"
+                    type="button"
+                    className="btn btn-primary mx-2"
+                    to={`/viewcustomer/${customers.customerID}`}
+                  >
+                    View
+                  </Link>
 
-                    {/* <Link
+                  {/* <Link
                       id="list-customers-btn-edit"
                       className="btn btn-outline-primary mx-2"
                       to={`/editcustomer/${customers.customerID}`}
@@ -597,51 +600,51 @@ const NewCustomerListCustomers = () => {
                       Edit
                     </Link> */}
 
-                    <button
-                      id="list-customers-btn-edit"
-                      className="btn btn-outline-primary mx-2"
-                      onClick={() => onEditClick(customers.customerID)}
-                    >
-                      Edit
-                    </button>
+                  <button
+                    id="list-customers-btn-edit"
+                    className="btn btn-outline-primary mx-2"
+                    onClick={() => onEditClick(customers.customerID)}
+                  >
+                    Edit
+                  </button>
 
-                    <button
-                      id="list-customers-btn-delete"
-                      className="btn btn-danger mx-2"
-                      onClick={() =>
-                        handleShowConfirmation(customers.customerID)
-                      }
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  <button
+                    id="list-customers-btn-delete"
+                    className="btn btn-danger mx-2"
+                    onClick={() =>
+                      handleShowConfirmation(customers.customerID)
+                    }
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-          <Modal
-            show={showConfirmation}
-            onHide={handleCloseConfirmation}
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Confirm Delete</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              Are you sure you want to delete this customer?
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseConfirmation}>
-                No
-              </Button>
-              <Button variant="danger" onClick={confirmDelete}>
-                Yes
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </div>
+        <Modal
+          show={showConfirmation}
+          onHide={handleCloseConfirmation}
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm Delete</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Are you sure you want to delete this customer?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseConfirmation}>
+              No
+            </Button>
+            <Button variant="danger" onClick={confirmDelete}>
+              Yes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
+
 
       {/* "Go to Top" button */}
       <button id="go-to-top-btn" onClick={() => window.scrollTo(0, 0)}>
@@ -663,4 +666,4 @@ const NewCustomerListCustomers = () => {
   );
 };
 
-export default NewCustomerListCustomers;
+export default CustomerDetails;

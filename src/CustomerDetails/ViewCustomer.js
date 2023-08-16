@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import "./ViewCustomer.css";
 
 export default function ViewCustomer() {
-  // let navigate=useNavigate();
 
   const [customer, setCustomer] = useState({
     customerID: "",
@@ -94,7 +93,6 @@ export default function ViewCustomer() {
     } catch (error) {
       console.error("Error:", error);
     }
-    // navigate("/");
   };
 
   return (
@@ -347,27 +345,54 @@ export default function ViewCustomer() {
                     </div>
 
                     {purchaseData.purchasedSarees.map((saree, index) => (
-                      <div id="add-saree-sub" key={index}>
-                        <>
-                          <input
-                            id="saree-details"
-                            type="text"
-                            value={saree}
-                            onChange={(e) => handleSareeInputChange(e, index)}
-                            required
-                          />
-                        </>
-                        <>
+                      <div
+                      className="form-floating"
+                      id="add-saree-sub"
+                      key={index}
+                    >
+                      <>
+                        <input
+                          id="saree-details"
+                          type="text"
+                          className="form-control"
+                          value={saree.name}
+                          onChange={(e) => handleSareeInputChange(e, index)}
+                          required
+                        />
+                        <label for="saree-details" className="plabel">
+                          Saree Details:
+                        </label>
+                      </>
+                      <>
+                        <button
+                          id="saree-remove-btn"
+                          className="btn btn-danger m-1"
+                          type="button"
+                          onClick={() => handleRemoveSaree(index)}
+                        >
+                          Remove
+                        </button>
+                        <div id="saree-quantity-btn-div">
                           <button
-                            id="saree-remove-btn"
-                            className="btn btn-danger m-1"
+                            id="saree-decrement-btn"
+                            className="btn btn-warning"
                             type="button"
-                            onClick={() => handleRemoveSaree(index)}
+                            onClick={() => handleQuantityChange(index, -1)}
                           >
-                            Remove
+                            -
                           </button>
-                        </>
-                      </div>
+                          <span id="saree-quantity">{saree.quantity}</span>
+                          <button
+                            id="saree-increment-btn"
+                            className="btn btn-warning"
+                            type="button"
+                            onClick={() => handleQuantityChange(index, 1)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </>
+                    </div>
                     ))}
 
                     <div className="cd-card2-sub">

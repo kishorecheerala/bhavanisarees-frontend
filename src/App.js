@@ -4,19 +4,16 @@ import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 
-
+import CurrentDateTime from "./CurrentDateTime";
 import Navbar from './Navbar/Navbar';
-import NewCustomerListCustomers from './CustomerDetails/NewCustomerListCustomers';
-import EditCustomer from './CustomerDetails/EditCustomer';
+
+import CustomerDetails from './CustomerDetails/CustomerDetails';
 import ViewCustomer from './CustomerDetails/ViewCustomer';
-import AddSeller from './SellerDetails/AddSeller';
-import EditSeller from './SellerDetails/EditSeller';
-import ListSellers from './SellerDetails/ListSellers';
-import ViewSeller from './SellerDetails/ViewSeller';
+import SellerDetails from './SellerDetails/SellerDetails';
+
 import CustomerReport from './Reports/CustomerReport';
 import Print from './Reports/Print';
 import Excel from './Reports/Excel';
-
 
 
 function App() {
@@ -24,23 +21,19 @@ function App() {
 
     <div className='App'>
       <Router>
+      <CurrentDateTime />
       <Navbar />
-
       <Routes>
         
         <Route exact path="/" element={<index/>}/>
         <Route exact path="/Home" element={<index/>}/>
         
         {/* Customer Details */}
-        <Route exact path="/customers" element={<NewCustomerListCustomers/>}/>
-        <Route exact path="/editcustomer/:customerID" element={<EditCustomer/>}/>
+        <Route exact path="/customers" element={<CustomerDetails/>}/>
         <Route exact path="/viewcustomer/:customerID" element={<ViewCustomer/>}/>
 
         {/* Seller Details */}
-        <Route exact path="/sellers" element={<ListSellers/>}/>
-        <Route exact path="/newseller" element={<AddSeller />}/>
-        <Route exact path="/sellers/:sellerID" element={<EditSeller/>}/>
-        <Route exact path="/sellers/:sellerID" element={<ViewSeller/>}/>
+        <Route exact path="/sellers" element={<SellerDetails/>}/>
 
         {/* Reports */}
         <Route exact path="/customer/reports" element={<CustomerReport/>}/>
