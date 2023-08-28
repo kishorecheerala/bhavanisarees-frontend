@@ -16,6 +16,13 @@ import Print from './Reports/Print';
 import Excel from './Reports/Excel';
 
 
+// Seller imports
+import SellerList from './components/SellerList';
+import InvoiceList from './components/InvoiceList';
+import InvoiceDetail from './components/InvoiceDetail';
+import ReturnList from './components/ReturnList';
+
+
 function App() {
   return (
 
@@ -42,6 +49,16 @@ function App() {
 
       
       </Routes>
+
+      <div>
+        <h1>Seller Management System</h1>
+        <Routes>
+          <Route path="/" exact component={SellerList} />
+          <Route path="/invoices/:sellerId" exact component={InvoiceList} />
+          <Route path="/invoices/:sellerId/:invoiceId" component={InvoiceDetail} />
+          <Route path="/returns/:invoiceId" component={ReturnList} />
+        </Routes>
+      </div>
 
       </Router>
     </div>
