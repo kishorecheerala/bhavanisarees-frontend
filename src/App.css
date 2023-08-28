@@ -13,6 +13,7 @@
   /* background-image:url("/src/images/BR.jpg"); */
   
   height: 100vh!important;
+  width: 100vw !important;
   
 }
 
@@ -29,6 +30,7 @@
 }
 
 .current-date-time-container {
+  background-color: #212529;
   width: 100%;
   height: 30px; /* Adjust the height as needed */
   overflow: hidden;

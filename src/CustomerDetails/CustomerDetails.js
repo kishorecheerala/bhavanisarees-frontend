@@ -6,6 +6,9 @@ import { Modal, Button } from "react-bootstrap";
 import "./CustomerDetails.css";
 import "./CustomerDetails.scss";
 
+import JSZip from 'jszip';
+import DataTable from 'datatables.net-bs5';
+import 'datatables.net-buttons-bs5';
 
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import "datatables.net-dt/js/dataTables.dataTables.min.js";
@@ -29,6 +32,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Assign vfs_fonts.js module to pdfMake
+DataTable.Buttons.jszip(JSZip);
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const CustomerDetails = () => {
@@ -46,7 +50,6 @@ const CustomerDetails = () => {
     phoneNumber: "",
     reference: "",
   });
-
 
   //Delete button Model box confirmation
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -122,7 +125,6 @@ const CustomerDetails = () => {
     setEditMode(false);
   };
 
-
   const handleShowConfirmation = (customerID) => {
     setShowConfirmation(true);
     setCustomerToDelete(customerID);
@@ -162,12 +164,12 @@ const CustomerDetails = () => {
       $("#list-customer-table").DataTable({
         // To remove the alert
         destroy: true,
-
+        
         pagingType: "full_numbers",
         pageLength: 20,
         processing: true,
         dom: "Bfrtip",
-
+        
         columnDefs: [
           {
             targets: 0, // Assuming customer ID is in the first column (index 0)
@@ -182,8 +184,10 @@ const CustomerDetails = () => {
           },
         ],
 
-        buttons: [
+        //DataTable buttons
 
+        buttons: [
+          
           //Print button customization from the datatable
           {
             extend: "print",
@@ -196,7 +200,7 @@ const CustomerDetails = () => {
           //Pdf button customization from the datatable
           {
             extend: "pdfHtml5",
-            text: "Open in PDF",
+            text: "PDF",
             title: "Bhavani Sarees",
             filename: "Bhavani Sarees Customers List " + formatDate(new Date()),
             exportOptions: {
@@ -261,6 +265,8 @@ const CustomerDetails = () => {
               doc.pageSize = "A4"; // A3, A4, A5, Letter, Legal, etc.
             },
           },
+
+          'excel',
 
           // (Column Visibility) button
           {
@@ -419,19 +425,13 @@ const CustomerDetails = () => {
         </div>
       )}
 
-      {/* React Toastify container */}
-      <ToastContainer position="top-center" />
-
       {editMode && (
-
         <div id="edit-customer-maincard" className="border rounded shadow">
           <h2 id="edit-customer-h2" className="text-center m-4">
             Edit Customer Details
           </h2>
           <form onSubmit={(e) => onEditSubmit(e)}>
-
             <div id="edit-customer-input-div">
-
               <div className="form-floating">
                 <input
                   id="edit-customer-input"
@@ -450,7 +450,6 @@ const CustomerDetails = () => {
                   Customer ID
                 </label>
               </div>
-
 
               <div className="form-floating">
                 <input
@@ -552,47 +551,50 @@ const CustomerDetails = () => {
 
       {/* Customers List table code */}
 
-      <div>
+      <div id="list-customer-main-div" className="border rounded shadow">
         <h1 id="add-customer-h2" className="text-center">
           Customers List
         </h1>
-      </div>
-      <div id="list-customer-div">
-        <table
-          id="list-customer-table"
-          className="table table-bordered table-striped shadow"
-        >
-          <thead id="customerlist-tableheader" className="table-dark">
-            <tr id="customerlist-tableheader-row" className="text-header">
-              <th className="text-center">Customer ID</th>
-              <th className="text-center">Customer Name</th>
-              <th className="text-center">Address</th>
-              <th className="text-center">Phone number</th>
-              <th className="text-center">Reference</th>
-              <th className="text-center">Actions</th>
-            </tr>
-          </thead>
+        <br />
 
-          <tbody id="lc-table" className="table-body fw-bold">
-            {newcustomers.map((customers) => (
-              <tr key={customers.customersID}>
-                <td>{customers.customerID}</td>
-                <td>{customers.customerName}</td>
-                <td>{customers.address}</td>
-                <td>{customers.phoneNumber}</td>
-                <td>{customers.reference}</td>
+        <div id="list-customer-sub-div" className="">
+          <table
+            id="list-customer-table"
+            className="table table-bordered table-striped shadow compact nowrap w-100"
+          >
+            <thead id="customerlist-tableheader" className="table-dark">
+              <tr id="customerlist-tableheader-row" className="text-header">
+                <th className="text-center">Customer ID</th>
+                <th className="text-center">Customer Name</th>
+                <th className="text-center">Address</th>
+                <th className="text-center">Phone number</th>
+                <th className="text-center">Balance</th>
+                <th className="text-center">Reference</th>
+                <th className="text-center">Actions</th>
+              </tr>
+            </thead>
 
-                <td className="actions">
-                  <Link
-                    id="list-customers-btn-view"
-                    type="button"
-                    className="btn btn-primary mx-2"
-                    to={`/viewcustomer/${customers.customerID}`}
-                  >
-                    View
-                  </Link>
+            <tbody id="customer-table-body" className="table-body fw-bold">
+              {newcustomers.map((customers) => (
+                <tr key={customers.customersID}>
+                  <td>{customers.customerID}</td>
+                  <td>{customers.customerName}</td>
+                  <td>{customers.address}</td>
+                  <td>{customers.phoneNumber}</td>
+                  <td>{customers.customerID}</td>
+                  <td>{customers.reference}</td>
 
-                  {/* <Link
+                  <td className="actions">
+                    <Link
+                      id="list-customers-btn-view"
+                      type="button"
+                      className="btn btn-primary mx-2"
+                      to={`/viewcustomer/${customers.customerID}`}
+                    >
+                      View
+                    </Link>
+
+                    {/* <Link
                       id="list-customers-btn-edit"
                       className="btn btn-outline-primary mx-2"
                       to={`/editcustomer/${customers.customerID}`}
@@ -600,28 +602,29 @@ const CustomerDetails = () => {
                       Edit
                     </Link> */}
 
-                  <button
-                    id="list-customers-btn-edit"
-                    className="btn btn-outline-primary mx-2"
-                    onClick={() => onEditClick(customers.customerID)}
-                  >
-                    Edit
-                  </button>
+                    <button
+                      id="list-customers-btn-edit"
+                      className="btn btn-outline-primary mx-2"
+                      onClick={() => onEditClick(customers.customerID)}
+                    >
+                      Edit
+                    </button>
 
-                  <button
-                    id="list-customers-btn-delete"
-                    className="btn btn-danger mx-2"
-                    onClick={() =>
-                      handleShowConfirmation(customers.customerID)
-                    }
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                    <button
+                      id="list-customers-btn-delete"
+                      className="btn btn-danger mx-2"
+                      onClick={() =>
+                        handleShowConfirmation(customers.customerID)
+                      }
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <Modal
           show={showConfirmation}
@@ -643,22 +646,24 @@ const CustomerDetails = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
 
+        {/* React Toastify container */}
+        <ToastContainer position="top-center" />
+      </div>
 
       {/* "Go to Top" button */}
       <button id="go-to-top-btn" onClick={() => window.scrollTo(0, 0)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="18"
+          width="20"
+          height="20"
           fill="currentColor"
-          className="bi bi-arrow-up"
+          className="bi bi-arrow-up-square"
           viewBox="0 0 16 16"
         >
           <path
-            fillRule="evenodd"
-            d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
+            fill-rule="evenodd"
+            d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"
           />
         </svg>
       </button>

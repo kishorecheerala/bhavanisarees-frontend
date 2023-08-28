@@ -3,16 +3,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,800&display=swap");
 
 #show-add-customer-form-btn {
-    margin-top : 10px;
-    margin-left: 80%;
-    color      : #fff;
-    cursor     : pointer;
+    margin-top   : 10px;
+    margin-left  : 80%;
+    color        : #fff;
+    cursor       : pointer;
+    margin-bottom: 5px;
 }
 
 .customer-list-div {
-    background: linear-gradient(344deg,#f2cdaa,#469380,#31207f);
+    background     : linear-gradient(344deg, #f2cdaa, #469380, #31207f);
     background-size: 180% 180%;
-    animation: gradient-animation 21s ease infinite;
+    animation      : gradient-animation 21s ease infinite;
 }
 
 @keyframes gradient-animation {
@@ -54,6 +55,11 @@
     margin-bottom: 10px;
 }
 
+.add-customer-label {
+    font-size  : 18px;
+    font-weight: bold;
+}
+
 #add-customer-btn-div {
     display        : flex;
     justify-content: center;
@@ -72,7 +78,6 @@
     width    : 90px;
 }
 
-
 /* Edit Customer CSS */
 
 #edit-customer-maincard {
@@ -84,6 +89,13 @@
     display        : flex;
     justify-content: space-evenly;
     gap            : 5px;
+}
+
+#edit-customer-h2 {
+    color      : white !important;
+    font-weight: bold;
+    font-family: "Playfair Display", serif !important;
+    font-size  : 40px;
 }
 
 #edit-customer-input {
@@ -98,99 +110,130 @@
     font-weight: bold;
 }
 
+#edit-customer-btn-div {
+    display        : flex;
+    justify-content: center;
+    gap            : 15px;
+    margin-bottom  : 15px;
+}
+
+#edit-customer-submit-btn {
+    padding  : 10px;
+    font-size: 20px;
+}
+
+#edit-customer-cancel-btn {
+    padding  : 10px;
+    font-size: 20px;
+    width    : 90px;
+}
+
 /* List Customer CSS */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
+/* @media (max-width: 900px) {
+    
+        #list-customer-sub-div {
+            width: 90%;
+            justify-content: center;
+            align-items: center;
+            margin-left: 2%;
+        }
+        #list-customer-table{
+            font-size: 12px;
+        }
 
-@media (min-width: 900px) {
-    #list-customer-div {
-        display: flex;
-        width: 70%;
-        align-items: center;
-        margin-left: 2%;
-        margin-right: 10%; /* Adjusted margin-right value */
-    }
-    #lc-table {
-        word-wrap: break-word;
-        table-layout: auto;
-        width: 80%;
-    }
-}
+        #list-customers-btn-view,
+        #list-customers-btn-edit,
+        #list-customers-btn-delete {
+            font-size: 20px;
+            width    : 30%;
+        }
 
-#list-customer-div {
+    } */
+
+#list-customer-main-div {
+    box-sizing     : border-box !important;
+    width          : 95%;
     justify-content: center;
-    width: 95%;
-    align-items: center;
-    margin-left: 2%;
-    margin-right: 10%;
+    align-items    : center;
+    margin-left    : 2%;
 }
 
-.buttons-print {
-    background-color: #3586ff;
-    color           : white;
-    border-radius   : 12px;
-    font-size       : 18px;
-    font-weight     : bold;
-    padding         : 10px 10px;
-    margin-left     : -50px;
-    border-style    : none;
-    font-family     : system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+#list-customer-sub-div {
+    width          : 95%;
+    justify-content: center;
+    align-items    : center;
+    margin-left    : 2%;
+    margin-bottom  : 20px;
 }
-
-.buttons-pdf {
-    background-color: #3586ff;
-    color           : #ffffff;
-    border-radius   : 12px;
-    font-size       : 18px;
-    font-weight     : bold;
-    padding         : 10px 10px;
-    margin-left     : -50px;
-    border-style    : none;
-
-}
-
 
 #list-customer-table{
-    
+    width: auto!important;
+    font-size: 12px !important;
 }
 
-#lc-table {
-    text-align    : center;
-    vertical-align: middle;
-    font-size     : 17px;
-    word-wrap: break-word;
-    table-layout: auto;
-    width: 100%;
+.dt-buttons {
+    gap: 5px !important;
 }
 
-th,td {
-    white-space: nowrap;
+.buttons-excel,
+.buttons-print,
+.buttons-pdf,
+.buttons-colvis {
+    background-color: #06a0e2 !important;
+    color           : #ffffff !important;
+    border-radius   : 4px !important;
+    font-size       : 14px !important;
+    font-weight     : bold;
+    padding         : 6px !important;
 }
 
-.actions {
-    display        : flex;
-    justify-content: space-evenly;
+.dataTables_filter label {
+    color      : #000000;
+    font-weight: bold;
+    font-size  : 18px;
 }
 
+.dataTables_filter input {
+    margin-bottom: 5px;
+    border       : 1px solid white !important;
+    outline      : 0px;
+}
 
 #list-customers-btn-view,
 #list-customers-btn-edit,
 #list-customers-btn-delete {
-    font-size: 20px;
-    width    : 50%;
+    font-size: 16px;
+    width    : 70px;
+}
+
+.dataTables_info {
+    color      : #000000 !important;
+    font-weight: bold;
+    font-size  : 18px;
+    margin-left: 15px;
+}
+
+.dataTables_paginate {
+    color      : #000000 !important;
+    font-weight: bold;
+    font-size  : 18px;
+    margin-left: 15px;
 }
 
 #go-to-top-btn {
     position        : fixed;
     bottom          : 50px;
     right           : 20px;
-    padding         : 8px 8px;
-    background-color: black;
-    color           : #fff;
+    padding         : 6px 6px;
+    padding-top     : 3px;
+    background-color: #000000;
+    color           : #ffffff;
     border          : none;
-    border-radius   : 50%;
+    border-radius   : 20%;
     cursor          : pointer;
 }
+
 
