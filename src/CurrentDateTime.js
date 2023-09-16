@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import venkateswaraswamylogo from '../src/images/venkateswaraswamy.png';
+import venkateswaraswamylogo from '../src/images/venkateswaraswamy.png';
 
 import '../src/App.css'
 
@@ -20,9 +20,9 @@ function CurrentDateTime() {
         <div className="current-date-time-container">
             <div className="scrolling-text">
             Current Date and Time: {currentDateTime.toLocaleString()} &nbsp;&nbsp;
-            {/* <img src={venkateswaraswamylogo} alt="logo" className="venkateswaraswamy"></img>&nbsp;&nbsp;
+            <img src={venkateswaraswamylogo} alt="logo" className="venkateswaraswamy"></img>&nbsp;&nbsp;
             Om Namo Venkateshaya &nbsp;&nbsp;
-            <img src={venkateswaraswamylogo} alt="logo" className="venkateswaraswamy"></img> */}
+            <img src={venkateswaraswamylogo} alt="logo" className="venkateswaraswamy"></img>
             </div>
         </div>
     );

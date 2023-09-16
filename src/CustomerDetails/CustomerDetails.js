@@ -17,6 +17,7 @@ import "datatables.net-buttons/js/dataTables.buttons.min.js";
 import "datatables.net-buttons/js/buttons.html5.min.js";
 import "datatables.net-buttons/js/buttons.print.min.js";
 import "datatables.net-buttons/js/buttons.colVis.min.js";
+
 import $ from "jquery";
 
 // Import to display the pdf button vfs_fonts.js
@@ -158,18 +159,52 @@ const CustomerDetails = () => {
     loadNewCustomers();
   }, []);
 
+
+  // Go to Top Button code Start
+
+    const [isVisible, setIsVisible] = useState(false);
+  
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+  
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+  
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
+
+  // Go to Top Button code End
+
   //initialize datatable
   $(document).ready(function () {
     setTimeout(function () {
       $("#list-customer-table").DataTable({
         // To remove the alert
         destroy: true,
-        
+        // resize: true, // Enable resizable
+        autoFill: true,
+
         pagingType: "full_numbers",
         pageLength: 20,
         processing: true,
         dom: "Bfrtip",
         
+        //Custom Sorting for the customer ID to sort B10 showing up after B1 
         columnDefs: [
           {
             targets: 0, // Assuming customer ID is in the first column (index 0)
@@ -200,7 +235,7 @@ const CustomerDetails = () => {
           //Pdf button customization from the datatable
           {
             extend: "pdfHtml5",
-            text: "PDF",
+            text: "Pdf",
             title: "Bhavani Sarees",
             filename: "Bhavani Sarees Customers List " + formatDate(new Date()),
             exportOptions: {
@@ -297,7 +332,7 @@ const CustomerDetails = () => {
       {/* Conditionally render the "Add Customer" form */}
 
       {showAddCustomerForm && (
-        <div className="add-customer-container">
+
           <div id="add-customer-maincard" className="border rounded shadow">
             <h2 id="add-customer-h2" className="m-4 text-center">
               Add a New Customer
@@ -422,7 +457,7 @@ const CustomerDetails = () => {
               </div>
             </form>
           </div>
-        </div>
+        
       )}
 
       {editMode && (
@@ -524,9 +559,7 @@ const CustomerDetails = () => {
               </div>
             </div>
 
-            <br></br>
             <div id="edit-customer-btn-div">
-              <br></br>
               <button
                 id="edit-customer-submit-btn"
                 type="submit"
@@ -551,16 +584,15 @@ const CustomerDetails = () => {
 
       {/* Customers List table code */}
 
-      <div id="list-customer-main-div" className="border rounded shadow">
+      {/* <div id="list-customer-main-div" className="border rounded shadow"> */}
+        
+        <div id="list-customer-sub" className="container-fluid mx-1">
         <h1 id="add-customer-h2" className="text-center">
           Customers List
         </h1>
-        <br />
-
-        <div id="list-customer-sub-div" className="">
           <table
             id="list-customer-table"
-            className="table table-bordered table-striped shadow compact nowrap w-100"
+            className="table table-bordered shadow nowrap"
           >
             <thead id="customerlist-tableheader" className="table-dark">
               <tr id="customerlist-tableheader-row" className="text-header">
@@ -584,7 +616,7 @@ const CustomerDetails = () => {
                   <td>{customers.customerID}</td>
                   <td>{customers.reference}</td>
 
-                  <td className="actions">
+                  <td className="actions text-center">
                     <Link
                       id="list-customers-btn-view"
                       type="button"
@@ -624,8 +656,8 @@ const CustomerDetails = () => {
               ))}
             </tbody>
           </table>
-        </div>
-
+        
+        
         <Modal
           show={showConfirmation}
           onHide={handleCloseConfirmation}
@@ -652,7 +684,9 @@ const CustomerDetails = () => {
       </div>
 
       {/* "Go to Top" button */}
-      <button id="go-to-top-btn" onClick={() => window.scrollTo(0, 0)}>
+      <button id="go-to-top-btn"
+        onClick={scrollToTop}
+        style={{ display: isVisible ? 'block' : 'none' }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -662,7 +696,7 @@ const CustomerDetails = () => {
           viewBox="0 0 16 16"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"
           />
         </svg>

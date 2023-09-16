@@ -1,23 +1,9 @@
 body{
     
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
-    /*     
-    background: linear-gradient(157deg,#9438c6,#86cce6,#68c748,#c5c319);
-    background-size: 240% 240%;
-    animation: gradient-animation 8s ease infinite;
-     */
 
+    margin: 0;
+    overflow: auto;
+
+    background-color: #e1e0e0!important;
 }
-
-/* @keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-    background-position: 100% 50%;
-    }
-    100% {
-    background-position: 0% 50%;
-    }
-} */

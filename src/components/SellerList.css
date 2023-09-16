@@ -1,0 +1,47 @@
+
+
+/* .container{
+    width: 95%;
+} */
+
+/* #add-seller-show-hide-btn{
+    margin-left: 72%;
+    margin-bottom: 10px;
+    font-weight: bold;
+} */
+
+/* #seller-details-table{
+    width: 95%;
+    margin-left: 2%;
+} */
+
+.add-seller-btn-div{
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Seller List div and table */
+
+#seller-list-table{
+    font-size: 1.2rem;
+}
+
+#seller-name{
+    color:cornflowerblue;
+    text-decoration: underline;
+    
+}
+
+thead th{
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody td{
+    /* background-color: transparent!important; */
+    text-align: center;
+    vertical-align: middle;
+}

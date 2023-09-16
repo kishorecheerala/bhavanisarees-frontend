@@ -1,20 +1,23 @@
+
 .App {
   
   /* background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
-  width: 100vw;
-  height: 100vh;
+  
   margin-top: 0px;
   text-align: center; */
   
-  background: linear-gradient(344deg,#f2cdaa,#469380,#31207f);
+  /* background: linear-gradient(344deg,#f2cdaa,#469380,#31207f);
   background-size: 180% 180%;
-  animation: gradient-animation 21s ease infinite;
+  animation: gradient-animation 21s ease infinite; */
+
+
   /* background-image:url("/src/images/BR.jpg"); */
-  
-  height: 100vh!important;
-  width: 100vw !important;
-  
+
+  /* background-color: #557A95;
+  height: 100vh;
+  width: 100vw; */
+
 }
 
 @keyframes gradient-animation {
@@ -39,7 +42,7 @@
 
 .scrolling-text {
   display: inline-block;
-  animation: scroll 40s linear infinite;
+  animation: scroll 50s linear infinite;
   white-space: nowrap;
   color: aliceblue;
   font-size: 18px;

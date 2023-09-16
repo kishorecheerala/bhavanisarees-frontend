@@ -4,16 +4,18 @@
 
 #show-add-customer-form-btn {
     margin-top   : 10px;
-    margin-left  : 80%;
+    margin-left  : 75%;
     color        : #fff;
     cursor       : pointer;
     margin-bottom: 5px;
 }
 
 .customer-list-div {
-    background     : linear-gradient(344deg, #f2cdaa, #469380, #31207f);
+    /* background     : linear-gradient(344deg, #f2cdaa, #469380, #31207f);
     background-size: 180% 180%;
-    animation      : gradient-animation 21s ease infinite;
+    animation      : gradient-animation 21s ease infinite; */
+    
+    /* background-color: #e7e7e7; */
 }
 
 @keyframes gradient-animation {
@@ -30,9 +32,12 @@
     }
 }
 
-.add-customer-container {
+#add-customer-maincard{
     align-items: center;
-    margin     : 10px 15px;
+    width: 95%;
+    margin-left: 2%;
+    margin-bottom: 20px;
+    padding-left: 5px;
 }
 
 .add-customer-div {
@@ -42,7 +47,7 @@
 }
 
 #add-customer-h2 {
-    color      : white !important;
+    color      : rgb(0, 0, 0) !important;
     font-weight: bold;
     font-family: "Playfair Display", serif !important;
     font-size  : 40px;
@@ -82,7 +87,10 @@
 
 #edit-customer-maincard {
     align-items: center;
-    margin     : 10px 15px;
+    width: 95%;
+    margin-left: 2%;
+    margin-bottom: 20px;
+    padding: 5px;
 }
 
 #edit-customer-input-div {
@@ -92,9 +100,9 @@
 }
 
 #edit-customer-h2 {
-    color      : white !important;
+    color      : rgb(0, 0, 0);
     font-weight: bold;
-    font-family: "Playfair Display", serif !important;
+    font-family: "Playfair Display", serif;
     font-size  : 40px;
 }
 
@@ -154,28 +162,43 @@
     } */
 
 #list-customer-main-div {
+    overflow: auto!important;
     box-sizing     : border-box !important;
     width          : 95%;
     justify-content: center;
     align-items    : center;
     margin-left    : 2%;
+
+}
+
+::-webkit-scrollbar {
+    width: 10px!important;
+    border-radius: 25px!important;
+    }
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
 }
 
 #list-customer-sub-div {
-    width          : 95%;
+    max-width: 95%;
     justify-content: center;
     align-items    : center;
     margin-left    : 2%;
     margin-bottom  : 20px;
 }
 
-#list-customer-table{
-    width: auto!important;
-    font-size: 12px !important;
+#list-customer-table {
+    font-size: clamp(10px, 80vw, 12px);
 }
 
 .dt-buttons {
     gap: 5px !important;
+    margin-top: 26px;
 }
 
 .buttons-excel,
@@ -188,18 +211,38 @@
     font-size       : 14px !important;
     font-weight     : bold;
     padding         : 6px !important;
+    border: 1px solid #000000!important;
+    
+}
+
+#list-customer-table_filter {
+    display: inline!important;
+    margin-bottom: 50px;
+    
+}
+
+.dataTables_filter{
+    
 }
 
 .dataTables_filter label {
+
     color      : #000000;
     font-weight: bold;
     font-size  : 18px;
+    text-align: justify;
 }
 
 .dataTables_filter input {
     margin-bottom: 5px;
-    border       : 1px solid white !important;
+    border       : 1px solid rgb(0, 0, 0) !important;
     outline      : 0px;
+}
+
+.actions{
+    display        : flex ;
+    justify-content:space-between ;
+    align-items: center;
 }
 
 #list-customers-btn-view,
@@ -213,14 +256,13 @@
     color      : #000000 !important;
     font-weight: bold;
     font-size  : 18px;
-    margin-left: 15px;
 }
 
 .dataTables_paginate {
-    color      : #000000 !important;
-    font-weight: bold;
-    font-size  : 18px;
-    margin-left: 15px;
+    font-size  : 0px;
+    
+    margin-top:5px;
+    
 }
 
 #go-to-top-btn {
